@@ -32,19 +32,25 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  let numberOfCorrectAnswers =0;
 for (let i =0; i <candidateAnswers.length; i++) {
     
   console.log(`Your answer is ${candidateAnswers[i]}! The correct Answer is ${correctAnswers[i]}`);
-
+  if (candidateAnswers[i].toLowerCase() ===correctAnswers[i].toLowerCase()){
+    numberOfCorrectAnswers += 1;
+  } else numberOfCorrectAnswers +=0;
 }
+// console.log(numberOfCorrectAnswers);
 
+  let grade = (numberOfCorrectAnswers/questions.length) * 100;  //TODO 3.2 use this variable to calculate the candidates score.
+if (grade >= 80) {
+  console.log(`Congrats ${candidateName}! You have answered ${grade}% of question correct! You have passed!`)
+} else (console.log(`Sorry ${candidateName}, you have only answered ${grade}% of questions correctly.You have not passed!`));
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
 
 
   return grade;
 }
-
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
